@@ -1,6 +1,7 @@
 import model.Product;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
@@ -92,9 +93,9 @@ public class SauceDemoTest {
         loginPage.loginButtonVisible();
     }
 
-//    @AfterMethod
-//    public void after() {
-//        driver.close();
-//        driver.quit();
-//    }
+    @AfterMethod
+    public void after() {
+        driver.close();
+        driver.quit();
+    }
 }
