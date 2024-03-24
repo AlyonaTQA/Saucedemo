@@ -8,7 +8,10 @@ import org.openqa.selenium.WebElement;
 public class CartPage extends CommonPage {
     private final By PAGE_LABEL = By.className("title");
     private final By CART_ITEM = By.className("cart_item");
+    private final By BUTTON_REMOVE = By.xpath("//div[contains(@class, 'cart_item')]//button[text()='Remove']");
+    private final String removeButtonLocator = "(//div[contains(@class, 'cart_item')]//button[text()='Remove'])['%d']";
     private final By BUTTON_CHECKOUT = By.id("checkout");
+    private final By BUTTON_CONTINUE_SOPPING = By.xpath("//div[contains(@class, 'cart_footer')]//button[text()='Continue Shopping']");
 
     private final String ITEM_NAME = ".inventory_item_name";
     private final String ITEM_DESCRIPTION = ".inventory_item_desc";
@@ -37,5 +40,18 @@ public class CartPage extends CommonPage {
 
     public void clickCheckoutButton() {
         findElement(BUTTON_CHECKOUT).click();
+    }
+
+    public void clickRemoveButton() {
+        findElement(BUTTON_REMOVE).click();
+    }
+
+    public void clickRemoveButton(int number) {
+        String formatLocator = String.format(removeButtonLocator, number);
+        findElement(By.xpath(formatLocator)).click();
+    }
+
+    public void clickContinueShoppingButton() {
+        findElement(BUTTON_CONTINUE_SOPPING).click();
     }
 }

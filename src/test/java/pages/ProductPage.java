@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class ProductPage extends CommonPage {
     private final By BUTTON_BACK = By.id("back-to-products");
-    private final By BUTTON_ADD_TO_CART = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
+    private final By BUTTON_ADD_TO_CART = By.xpath("//div[contains(@class, 'inventory_details_container')]//button[text()='Add to cart']");
     private final By SHOPPING_CART_BADGE = By.className("shopping_cart_badge");
     private final By SHOPPING_CART = By.className("shopping_cart_link");
     private final By PRODUCT_CONTAINER = By.xpath(".//div[@class = 'inventory_details_desc_container']");
@@ -23,6 +23,7 @@ public class ProductPage extends CommonPage {
     public String getBackButtonText() {
         return findElement(BUTTON_BACK).getText();
     }
+    public void clickOnBackButton() { findElement(BUTTON_BACK).click(); }
 
     public void clickAddToCartButton() {
         findElement(BUTTON_ADD_TO_CART).click();
